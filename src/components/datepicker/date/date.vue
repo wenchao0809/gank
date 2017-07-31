@@ -1,5 +1,5 @@
 <template>
-  <div class="date-wrapper">
+  <div  :class="{selectedBorder: isSelected}" class="date-wrapper">
     <div class="top">
     <span class="day"> {{ day }} </span>
     <sub class="weekDay">{{ weekDay }}</sub>
@@ -17,6 +17,10 @@
       historyDate: {
         type: String,
         default: '2017-09-8'
+      },
+      isSelcted: {
+        type: Boolean,
+        default: true
       }
     },
     computed: {
@@ -35,6 +39,8 @@
 </script>
 
 <style lang="scss">
+  @import '../../../assets/sass/_base.scss';
+
   .date-wrapper {
     text-align: center;
     .top {
@@ -51,5 +57,8 @@
       color: gray;
       font-size: 8px;
     }
+  }
+  .selectedBorder {
+    @include border-1px(hsla(120, 50%, 30%, 0.5), -10, 2)
   }
 </style>

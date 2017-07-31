@@ -16,6 +16,7 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 
 /* eslint-disable no-new */
+router.push({path: '/newest/最新'})
 new Vue({
   el: '#app',
   router,

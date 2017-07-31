@@ -3,7 +3,9 @@
     <!--header-->
     <appbar :title="common.title" :leftIcon="common.leftIcon"></appbar>
     <bottomnav class="bottomnav-position"></bottomnav>
-    <datepicker :dates="common.historyDates"></datepicker>
+
+    <router-view class="main"
+                 :class="{'hide-overflow': common.isHideMainOverflow}"></router-view>
   </div>
 </template>
 
@@ -11,14 +13,12 @@
   import bottomnav from './components/bottomnav/bottomnav.vue'
   import appbar from './components/appbar/appbar.vue'
   import { mapState } from 'vuex'
-  import datepicker from './components/datepicker/datepicker.vue'
 
   export default {
     name: 'app',
     components: {
       bottomnav,
-      appbar,
-      datepicker
+      appbar
     },
     computed: {
       ...mapState(['common'])
@@ -31,6 +31,8 @@
 
 <style lang="scss">
 #app {
+  width: 100%;
+  height: 100%;
   .bottomnav-position {
     position: fixed;
     bottom: 0;

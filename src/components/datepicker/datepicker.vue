@@ -1,5 +1,5 @@
 <template>
-  <scrollwrapper :listItems="dates" ref="scroll">
+  <scrollwrapper :isShow="isShowDatePicker" :listItems="dates" ref="scroll">
     <template scope="dateItem">
       <date :historyDate="dateItem.item"></date>
     </template>
@@ -18,7 +18,8 @@
         default () {
           return ['2017-07-12']
         }
-      }
+      },
+      isShow: false
     },
     mounted () {
     },
@@ -27,8 +28,6 @@
         this.$nextTick(() => {
           this.$refs.scroll.$refs.list.style.width = this._caculateScrollWidth() + 'px'
           this.$refs.scroll.scroll.refresh()
-          console.log(this.$refs.scroll.$refs.list.children)
-          console.log((40 + 15) * this.dates.length)
         })
       }
     },
@@ -41,6 +40,11 @@
         let margin = 15
         let box = this.$refs.scroll.$refs.list.children[0].getBoundingClientRect()
         return (box.width + margin) * this.dates.length
+      }
+    },
+    computed: {
+      isShowDatePicker () {
+        return this.isShow
       }
     }
   }

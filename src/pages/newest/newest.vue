@@ -1,4 +1,12 @@
 <template>
+  <div>
+    <div>this is newest page</div>
+    <div>this is newest page</div>
+    <div>this is newest page</div>
+    <div>this is newest page</div>
+    <div>this is newest page</div>
+    <div>this is newest page</div>
+  </div>
 
 </template>
 

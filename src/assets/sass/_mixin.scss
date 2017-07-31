@@ -42,15 +42,16 @@
     @include clearfix(false);
 }
 
-@mixin border-1px ($color: gray) {
+@mixin border-1px ($color: gray, $offsetVertical: 0, $weight: 0.5) {
   position: relative;
   &:after {
     display: block;
     position: absolute;
+    top: $offsetVertical + px;
     left: 0;
     bottom: 0;
     width: 100%;
-    border-top: 0.5px solid $color;
+    border-top: $weight+px solid $color;
     content: ' ';
   }
 }
