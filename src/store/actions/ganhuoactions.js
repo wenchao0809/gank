@@ -8,18 +8,15 @@ export const ganhuoactions = {
    * @method [GET]
    */
   async getGanHuoByDayAction ({dispatch, commit}) {
-    let result = await dispatch('getHistoryDateAction')
-    console.log(result)
-    console.log(common.state.selectedDate)
-    let splitDate = common.state.selectedDate.split('-')
-    let path = `/day/${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
-    console.log(path)
-    axios.get(path)
-      .then((response) => {
-      })
-      .then(function (error) {
-        console.log(error)
-      })
+    try {
+      await dispatch('getHistoryDateAction')
+      let splitDate = common.state.selectedDate.split('-')
+      let path = `/day/${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
+      let response = await axios.get(path)
+      commit('UPDATE_SELECT_DATE_GANHUO', response.data)
+    } catch (e) {
+      console.log(e.message)
+    }
   }
 }
 

@@ -7,8 +7,7 @@ const common = {
     leftIcon: 'radio_button_checked',
     historyDates: [],
     currentSelectDate: {},
-    selectedDate: '',
-    SelectedDateGanHuo: {}
+    selectedDate: ''
   },
   mutations: commonMutations,
   actions: commonActions,
