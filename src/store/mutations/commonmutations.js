@@ -18,5 +18,4 @@ export const commonMutations = {
       state.selectedDate = selectedDate.historyDate
     }
   }
-
 }

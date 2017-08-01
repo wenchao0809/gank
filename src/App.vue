@@ -29,6 +29,9 @@
       ...mapState(['common'])
     },
     mounted () {
+//      this.$store.dispatch('getHistoryDateAction')
+//      let that = this
+      this.$store.dispatch('getGanHuoByDayAction')
     }
   }
 </script>

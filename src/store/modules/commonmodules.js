@@ -1,5 +1,5 @@
 import {commonMutations} from '../mutations/commonmutations'
-import {commonActions} from '../actions/commonactions'
+import commonActions from '../actions/commonactions'
 
 const common = {
   state: {

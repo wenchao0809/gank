@@ -59,7 +59,6 @@
       }
     },
     mounted () {
-      this.$store.dispatch('getHistoryDateAction')
     }
   }
 </script>
