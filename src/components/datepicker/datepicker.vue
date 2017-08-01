@@ -1,7 +1,7 @@
 <template>
   <scrollwrapper :isShow="isShowDatePicker" :listItems="dates" ref="scroll">
     <template scope="dateItem">
-      <date :historyDate="dateItem.item"></date>
+      <date class="date" :historyDate="dateItem.item" :index="dateItem.index"></date>
     </template>
   </scrollwrapper>
 </template>
@@ -27,6 +27,7 @@
       dates: function () {
         this.$nextTick(() => {
           this.$refs.scroll.$refs.list.style.width = this._caculateScrollWidth() + 'px'
+          this.$refs.scroll.click = true
           this.$refs.scroll.scroll.refresh()
         })
       }
@@ -50,5 +51,10 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  /******** 使日期居中 *****/
+  .date {
+    height: 56px;
+    margin: auto 0;
+  }
 </style>

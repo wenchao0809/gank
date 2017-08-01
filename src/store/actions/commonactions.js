@@ -14,6 +14,18 @@ export const commonActions = {
        .then(function (error) {
          console.log(error)
        })
+  },
+
+  getGanHuoByDayAction ({commit}) {
+    let splitDate = this.selectedDate.split('-')
+    let path = `/day/${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
+    axios.get(path)
+      .then((response) => {
+
+      })
+      .then(function (error) {
+        console.log(error)
+      })
   }
 }
 

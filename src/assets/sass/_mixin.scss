@@ -47,9 +47,8 @@
   &:after {
     display: block;
     position: absolute;
-    top: $offsetVertical + px;
     left: 0;
-    bottom: 0;
+    bottom: $offsetVertical + px;;
     width: 100%;
     border-top: $weight+px solid $color;
     content: ' ';

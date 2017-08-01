@@ -7,7 +7,7 @@
       </div>
       <div class="title-wrapper">
         <span class="title">{{ title }}</span>
-        <span  class="currentDate">{{ currentDate}}</span>
+        <span  class="currentDate">{{ common.selectedDate }}</span>
       </div>
     </div>
     <datepicker :isShow="isShowDatePicker" class="datepicker-wrapper" :dates="common.historyDates"></datepicker>
@@ -57,6 +57,9 @@
           this.isShowDatePicker = !this.isShowDatePicker
         }
       }
+    },
+    mounted () {
+      this.$store.dispatch('getHistoryDateAction')
     }
   }
 </script>
@@ -106,10 +109,10 @@
       }
     }
     .datepicker-wrapper {
-      @include border-1px(hsla(120, 30%, 10%, 0.1))
       position: absolute;
       /*top: 56px;*/
       /*display: none;*/
+      @include border-1px(hsla(120, 30%, 10%, 0.1))
     }
   }
 </style>

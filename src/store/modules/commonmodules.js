@@ -5,8 +5,10 @@ const common = {
   state: {
     title: '最新干货',
     leftIcon: 'radio_button_checked',
-    dateEm: {},
-    historyDates: []
+    historyDates: [],
+    currentSelectDate: {},
+    selectedDate: '',
+    SelectedDateGanHuo: {}
   },
   mutations: commonMutations,
   actions: commonActions,

@@ -11,3 +11,4 @@ export const CHANGE_TILTE_AND_ICON = 'CHANGE_TITLE_AND_ICON'
 
 /* *** 更新historyDates ****/
 export const UPDATE_HISTORY_DATES = 'UPDATE_HISTORY_DATES'
+export const UPDATE_SELECT_DATE = 'UPDATE_SELECT_DATE'

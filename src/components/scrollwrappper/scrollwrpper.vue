@@ -8,9 +8,9 @@
   >
   <div v-show="isShow"
        class="scroll-wrapper" ref="scrollWrapper">
-    <ul class="list" ref="list">
-      <li class="list-item" v-for="item in listItems">
-        <slot :item="item"></slot>
+    <ul class="list" ref="list"  >
+      <li  class="list-item" v-for="(item, index) in listItems">
+        <slot :item="item" :index="index"></slot>
       </li>
     </ul>
   </div>
@@ -48,16 +48,16 @@
         }
       },
       beforeEnter (el) {
-        el.style.top = '0'
+        el.style.top = '-56px'
       },
       enter (el, done) {
-        Velocity(el, {top: '56px'}, {duration: 200, easing: 'easeInSine', complete: done})
+        Velocity(el, {top: '0px'}, {duration: 200, easing: 'easeInSine', complete: done})
       },
       leave (el, done) {
-        Velocity(el, {top: '0px'}, {duration: 200, easing: 'easeOutSine', complete: done})
+        Velocity(el, {top: '-56px'}, {duration: 200, easing: 'easeOutSine', complete: done})
       },
       afterLeave (el) {
-        el.style.top = '0'
+        el.style.top = '-56px'
       }
     }
   }
@@ -68,21 +68,23 @@
   @import "~animate.css";
 
   .scroll-wrapper {
+    display: block;
     animation-duration: .2s;
     width: 100%;
     background: white;
     overflow: hidden;
+    text-align: center;
     .list {
       height: 56px;
       margin: 0;
       padding: 0;
       list-style: none;
       .list-item {
-        margin: 8px 0;
         display: inline-block;
         margin-right: 15px;
       }
     }
   }
+
 
 </style>

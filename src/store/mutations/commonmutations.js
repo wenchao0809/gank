@@ -7,5 +7,16 @@ export const commonMutations = {
   },
   [types.UPDATE_HISTORY_DATES] (state, dates) {
     state.historyDates = dates
+    state.selectedDate = dates[0]
+  },
+  [types.UPDATE_SELECT_DATE] (state, selectedDate) {
+    if (state.currentSelectDate.index === selectedDate.index) {
+      return
+    } else {
+      state.currentSelectDate.isSelected = false
+      state.currentSelectDate = selectedDate
+      state.selectedDate = selectedDate.historyDate
+    }
   }
+
 }
