@@ -33,13 +33,14 @@
        */
       dates: function () {
         this.$nextTick(() => {
-          this.$refs.scroll.$refs.list.style.width = this._caculateScrollWidth() + 'px'
-          this.$refs.scroll.scroll.refresh()
           /* ***判断是否选中第一个日期 */
           if (this.isSelectFirstDate) {
             this.$store.commit('UPDATE_SELECT_DATE', this.$refs.scroll.$children[0])
             this.$refs.scroll.$children[0].isSelected = true
           }
+          /* ****由于dispaly未none时无法计算宽度先大致给个宽度****/
+          this.$refs.scroll.$refs.list.style.width = (34 + 15) * this.dates.length + 'px'
+          this.$refs.scroll.scroll.refresh()
         })
       }
     },
@@ -59,6 +60,14 @@
          *
          */
         this.$emit('selectDate')
+        /**
+         * 点击时重新计算一下宽度
+         */
+        this.$nextTick(() => {
+          console.log(this.$refs.scroll.$refs.list.children[0].getBoundingClientRect())
+          this.$refs.scroll.$res.list.style.width = this._caculateScrollWidth() + 'px'
+          this.$refs.scroll.scroll.refresh()
+        })
       }
     },
     computed: {

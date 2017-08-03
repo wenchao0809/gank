@@ -1,5 +1,5 @@
 <template>
-  <div class="item-wrapper">
+  <div @click="locateToDetail" class="item-wrapper">
     <div class="description-wrapper">
       <p class="descriptieon" style="margin: 0; padding: 0">{{ ganhuoDescription }}</p>
       <div class="label-wrapper">
@@ -37,6 +37,10 @@
       who: function () {
         return this.itemGanhuo.who
       },
+      /**
+       * 转化date
+       * @returns {string}
+       */
       date: function () {
         let tempDateArray = this.itemGanhuo.publishedAt.split('T')
         let day = tempDateArray[0].match(/(\d{2}-\d{2})$/g)
@@ -45,6 +49,11 @@
       },
       classify: function () {
         return this.itemGanhuo.type
+      }
+    },
+    methods: {
+      locateToDetail () {
+        window.open(this.itemGanhuo.url)
       }
     }
   }

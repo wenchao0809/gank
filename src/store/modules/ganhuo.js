@@ -3,6 +3,7 @@ import {ganhuoactions} from '../actions/ganhuoactions'
 
 const ganhuo = {
   state: {
+    classifys: [],
     selectedDateData: [],
     ganHuoClassify: [],
     selectedClassifyData: [],

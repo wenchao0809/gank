@@ -1,5 +1,5 @@
 <template>
-  <div class="classify-wrapper">
+  <div class="classifylist-wrapper">
     <div class="header-wrapper">
       <div class="header">
         <p>{{ headerDescription }}</p>
@@ -38,7 +38,7 @@
 <style lang="scss">
   @import '../../assets/sass/_base.scss';
 
-  .classify-wrapper {
+  .classifylist-wrapper {
     .header-wrapper {
       display: table;
       vertical-align: middle;

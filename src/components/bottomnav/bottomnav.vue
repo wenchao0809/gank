@@ -37,7 +37,7 @@
   export default {
     data () {
       return {
-        bottomNav: '',
+        bottomNav: 'newest',
         isActive: true
       }
     },

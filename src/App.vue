@@ -5,8 +5,9 @@
     <!--<datepicker  isShow="" class="datepicker-wrapper" :dates="common.historyDates"></datepicker>-->
     <bottomnav class="bottomnav-position"></bottomnav>
     <!--<dateC historyDate="2017-07-08"></dateC>-->
-    <router-view class="main"
-                 :class="{'hide-overflow': common.isHideMainOverflow}"></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -45,7 +46,7 @@
     width: 100%;
   }
   .app-bar {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 500;

@@ -33,10 +33,11 @@
     },
     methods: {
       /**
-       * 下拉刷西安数据
+       * 下拉刷新数据
        * @returns {Promise.<void>}
        */
       async refresh () {
+        console.log('jfjfj')
         this.$store.commit('UPDATE_IS_SHOW_REFRESH', true)
         await this.$store.dispatch('getGanHuoByDayAction')
         this.$store.commit('UPDATE_IS_SHOW_REFRESH', false)

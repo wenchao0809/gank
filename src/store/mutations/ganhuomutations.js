@@ -7,6 +7,11 @@ export const ganhuomutaions = {
   },
   [types.UPDATE_IS_SHOW_REFRESH] (state, isShowRefresh) {
     state.isShowRefresh = isShowRefresh
+  },
+  [types.UPDATE_CLASSIFYS] (state, classifys) {
+    state.classifys = classifys
+    state.classifys.unshift('全部')
+    state.classifys = [...state.classifys, ...['拓展资源', '瞎推荐', 'App']]
   }
 }
 

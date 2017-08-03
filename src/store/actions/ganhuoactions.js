@@ -1,5 +1,6 @@
 import axios from 'axios'
 import common from '../modules/commonmodules'
+import router from '../../router/index'
 
 export const ganhuoactions = {
   /**
@@ -18,6 +19,7 @@ export const ganhuoactions = {
       let response = await axios.get(path)
       commit('UPDATE_IS_SHOW_REFRESH', false)
       commit('UPDATE_SELECT_DATE_GANHUO', response.data)
+      commit('UPDATE_CLASSIFYS', response.data.category)
     } catch (e) {
       console.log(e.message)
     }
@@ -31,6 +33,7 @@ export const ganhuoactions = {
     try {
       let splitDate = common.state.selectedDate.split('-')
       let path = `/day/${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
+      router.push(`/newest/${splitDate[0]}${splitDate[1]}${splitDate[2]}`)
       commit('UPDATE_IS_SHOW_REFRESH', true)
       let response = await axios.get(path)
       commit('UPDATE_IS_SHOW_REFRESH', false)

@@ -59,7 +59,7 @@
       },
       handleSelectDate () {
         /**
-         * 选择日期触发action更新数据并隐藏datepicker
+         *
          * @type {boolean}
          */
         this.$store.dispatch('getGanHuoByDayAction')
@@ -117,6 +117,7 @@
     }
     .datepicker-wrapper {
       position: absolute;
+      display: block;
       /*top: 56px;*/
       /*display: none;*/
       @include border-1px(hsla(120, 30%, 10%, 0.1))
