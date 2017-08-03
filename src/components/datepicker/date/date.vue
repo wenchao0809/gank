@@ -42,8 +42,11 @@
     },
     methods: {
       handleClick ($event) {
-        this.isSelected = !this.isSelected
+        if (!this.isSelected) {
+          this.isSelected = !this.isSelected
+        }
         this.$store.commit('UPDATE_SELECT_DATE', this)
+        this.$emit('selectDate')
       }
     }
   }

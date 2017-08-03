@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--header-->
-    <appbar :title="common.title" :leftIcon="common.leftIcon"></appbar>
+    <appbar class="app-bar" :title="common.title" :leftIcon="common.leftIcon"></appbar>
     <!--<datepicker  isShow="" class="datepicker-wrapper" :dates="common.historyDates"></datepicker>-->
     <bottomnav class="bottomnav-position"></bottomnav>
     <!--<dateC historyDate="2017-07-08"></dateC>-->
@@ -29,9 +29,7 @@
       ...mapState(['common'])
     },
     mounted () {
-//      this.$store.dispatch('getHistoryDateAction')
-//      let that = this
-      this.$store.dispatch('getGanHuoByDayAction')
+      this.$store.dispatch('getInitPageDataAction')
     }
   }
 </script>
@@ -43,7 +41,14 @@
   .bottomnav-position {
     position: fixed;
     bottom: 0;
+    z-index: 500;
     width: 100%;
+  }
+  .app-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
   }
 }
 </style>

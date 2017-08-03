@@ -5,7 +5,8 @@ const ganhuo = {
   state: {
     selectedDateData: [],
     ganHuoClassify: [],
-    selectedClassifyData: []
+    selectedClassifyData: [],
+    isShowRefresh: false
   },
   actions: ganhuoactions,
   mutations: ganhuomutaions

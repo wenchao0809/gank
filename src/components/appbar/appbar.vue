@@ -10,7 +10,7 @@
         <span  class="currentDate">{{ common.selectedDate }}</span>
       </div>
     </div>
-    <datepicker :isShow="isShowDatePicker" class="datepicker-wrapper" :dates="common.historyDates"></datepicker>
+    <datepicker @selectDate="handleSelectDate" :isShow="isShowDatePicker" class="datepicker-wrapper" :dates="common.historyDates " :isSelectFirstDate="true"></datepicker>
   </div>
 </template>
 
@@ -25,7 +25,7 @@
   export default {
     data () {
       return {
-        left_color: '#41b883',
+        left_color: 'white',
         isShowDatePicker: false
       }
     },
@@ -56,6 +56,14 @@
         if (path.startsWith(NEWESTPAGE)) {
           this.isShowDatePicker = !this.isShowDatePicker
         }
+      },
+      handleSelectDate () {
+        /**
+         * 选择日期触发action更新数据并隐藏datepicker
+         * @type {boolean}
+         */
+        this.$store.dispatch('getGanHuoByDayAction')
+        this.isShowDatePicker = !this.isShowDatePicker
       }
     },
     mounted () {
@@ -74,18 +82,18 @@
       width: 100%;
       height: 100%;
       z-index: 499;
-      background: $DarkWhite;
+      background: $primary;
     }
     position: relative;
     margin: 0 auto;
     width: 100%;
     height: 56px;
     text-align: center;
-    background: $DarkWhite;
+    background: $primary;
     padding-top: 10px;
     .appbar {
       position: relative;
-      background: $DarkWhite;
+      background: $primary;
       z-index: 500;
       .left-button {
         position: absolute;
@@ -98,7 +106,7 @@
           display: block;
         }
         .title {
-          color: #41b883;
+          color: white;
           font-size: 17px;
         }
         .currentDate {
