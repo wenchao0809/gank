@@ -1,5 +1,5 @@
 <template>
-  <mu-tabs  :value="activeTab" @change="handleTabChange">
+  <mu-tabs  :value="activeTab" @change="handleTabChange" ref="mutabs">
     <classifyitem v-for="item in classifys" :item="item" :key="item+1"></classifyitem>
   </mu-tabs>
 </template>
@@ -25,6 +25,10 @@
     },
     methods: {
       handleTabChange (value) {
+      }
+    },
+    watch: {
+      classifys: function () {
       }
     }
   }

@@ -7,7 +7,9 @@ const common = {
     leftIcon: 'radio_button_checked',
     historyDates: [],
     currentSelectDate: {},
-    selectedDate: ''
+    selectedDate: '',
+    isShowRefresh: false,
+    isShowLoad: false
   },
   mutations: commonMutations,
   actions: commonActions,

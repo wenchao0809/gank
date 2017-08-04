@@ -32,5 +32,21 @@ export const commonMutations = {
       state.currentSelectDate = selectedDate
       state.selectedDate = selectedDate.historyDate
     }
+  },
+  /**
+   * 更新是否显示刷新控件
+   * @param state
+   * @param isShowRefresh
+   */
+  [types.UPDATE_IS_SHOW_REFRESH] (state, isShowRefresh) {
+    state.isShowRefresh = isShowRefresh
+  },
+  /**
+   * 更新是否显示load控件
+   * @param state
+   * @param isShowLoad
+   */
+  [types.UPDATE_IS_SHOW_LOAD] (state, isShowLoad) {
+    state.isShowLoad = isShowLoad
   }
 }

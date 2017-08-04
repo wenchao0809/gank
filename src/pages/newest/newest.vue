@@ -1,7 +1,7 @@
 <template>
   <div class="newest-wrapper">
     <!--refreshHeader-->
-    <mu-refresh-control :refreshing="ganhuo.isShowRefresh"
+    <mu-refresh-control :refreshing="common.isShowRefresh"
                         :trigger="trigger"
                         @refresh="refresh"
                          />
@@ -26,7 +26,7 @@
       classifylist
     },
     computed: {
-      ...mapState(['ganhuo'])
+      ...mapState(['common', 'ganhuo'])
     },
     mounted () {
       this.trigger = this.$el
@@ -37,7 +37,6 @@
        * @returns {Promise.<void>}
        */
       async refresh () {
-        console.log('jfjfj')
         this.$store.commit('UPDATE_IS_SHOW_REFRESH', true)
         await this.$store.dispatch('getGanHuoByDayAction')
         this.$store.commit('UPDATE_IS_SHOW_REFRESH', false)

@@ -1,4 +1,5 @@
 import {classifymutaions} from '../mutations/classifymutaions'
+import {classifyActions} from '../actions/classifyactions'
 
 const classify = {
   state: {
@@ -6,9 +7,15 @@ const classify = {
      * 保存当前被选中的组件实例
      */
     currentSelectClassify: {},
-    classifySelectClassifyString: ''
+    selectedClassifyData: [],
+    classifySelectClassifyString: 'all',
+    moreData: 'false',
+    // 请求第几页默认第一页
+    refreshPage: 1,
+    loadPage: 2
   },
-  mutations: classifymutaions
+  mutations: classifymutaions,
+  actions: classifyActions
 }
 
 export default classify

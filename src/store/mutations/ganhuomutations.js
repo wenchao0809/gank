@@ -5,9 +5,6 @@ export const ganhuomutaions = {
     state.selectedDateData = response.results
     state.ganhuoClassify = response.category
   },
-  [types.UPDATE_IS_SHOW_REFRESH] (state, isShowRefresh) {
-    state.isShowRefresh = isShowRefresh
-  },
   [types.UPDATE_CLASSIFYS] (state, classifys) {
     state.classifys = classifys
     state.classifys.unshift('全部')
