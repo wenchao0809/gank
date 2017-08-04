@@ -39,6 +39,7 @@
 #app {
   width: 100%;
   height: 100%;
+  -webkit-overflow-scrolling: touch;
   .bottomnav-position {
     position: fixed;
     bottom: 0;

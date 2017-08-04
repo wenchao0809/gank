@@ -64,8 +64,8 @@
          * 点击时重新计算一下宽度
          */
         this.$nextTick(() => {
-          console.log(this.$refs.scroll.$refs.list.children[0].getBoundingClientRect())
-          this.$refs.scroll.$res.list.style.width = this._caculateScrollWidth() + 'px'
+//          console.log(this.$refs.scroll.$refs.list.children[0].getBoundingClientRect())
+          this.$refs.scroll.$refs.list.style.width = this._caculateScrollWidth() + 'px'
           this.$refs.scroll.scroll.refresh()
         })
       }

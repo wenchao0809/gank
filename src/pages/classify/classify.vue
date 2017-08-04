@@ -63,11 +63,13 @@
 
   .classify-wrapper {
     position: absolute;
-    top: 100px;
+    /**增加父元素区域**/
+    padding-top: 44px;
+    top: 56px;
     width: 100%;
     bottom: 56px;
     overflow-x: hidden;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     .classify-picker {
       position: fixed;
       top:  56px;
@@ -75,6 +77,10 @@
       overflow-x: auto !important;
       overflow-y: hidden;
       line-height: 44px !important;
+      .classifyitem-wrapper {
+        position: relative;
+        font-size:  18px;
+      }
     }
     .items-wrapper {
       list-style: none;

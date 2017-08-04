@@ -28,7 +28,6 @@
     },
     mounted () {
       if (this.item === '全部') {
-        console.log('jjdj')
         this.isSelected = true
         this.$store.commit('UPDATE_SELECT_CLASSIFY', this)
       }

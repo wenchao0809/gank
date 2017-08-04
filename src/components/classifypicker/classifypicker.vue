@@ -42,7 +42,7 @@
   }
 
   .mu-tabs {
-    background: white;
+    background: white !important;
     .mu-tab-text {
       color: #99A9BF;
       white-space: nowrap;
