@@ -1,5 +1,5 @@
 <template>
-  <div class="appbar-wrapper">
+  <div v-show="showappbar" class="appbar-wrapper">
     <div class="mask"></div>
     <div class="appbar">
       <div>
@@ -7,7 +7,7 @@
       </div>
       <div class="title-wrapper">
         <span class="title">{{ title }}</span>
-        <span  class="currentDate">{{ common.selectedDate }}</span>
+        <span  v-show="showTitleDate" class="currentDate">{{ common.selectedDate }}</span>
       </div>
     </div>
     <datepicker @selectDate="handleSelectDate" :isShow="isShowDatePicker" class="datepicker-wrapper" :dates="common.historyDates " :isSelectFirstDate="true"></datepicker>
@@ -44,7 +44,17 @@
       }
     },
     computed: {
-      ...mapState(['common'])
+      ...mapState(['common']),
+      showTitleDate: function () {
+        return this.$route.path.includes('newest')
+      },
+      showappbar: function () {
+        if (this.$route.path.includes('search')) {
+          return false
+        } else {
+          return true
+        }
+      }
     },
     components: {
       datepicker

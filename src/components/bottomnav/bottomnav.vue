@@ -19,7 +19,7 @@
                           iconClass="iconClass"
                           titleClass="iconClass"
                           activeClass="active"
-                          to="/search/query"
+                          to="/search/category"
                           icon="search"/>
       <mu-bottom-nav-item value="books"
                           title="收藏"

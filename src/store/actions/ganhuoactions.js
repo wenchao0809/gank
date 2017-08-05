@@ -17,6 +17,7 @@ export const ganhuoactions = {
       let splitDate = common.state.selectedDate.split('-')
       let path = `/day/${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
       let response = await axios.get(path)
+      console.log(response)
       commit('UPDATE_IS_SHOW_REFRESH', false)
       commit('UPDATE_SELECT_DATE_GANHUO', response.data)
       commit('UPDATE_CLASSIFYS', response.data.category)
