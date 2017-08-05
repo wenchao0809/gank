@@ -5,7 +5,7 @@
                         @refresh="refresh"
     />
     <div class="search-input-wrapper">
-      <mu-text-field hintText="按分类搜索" v-model="queryString" type="text" icon="search"/>
+      <mu-text-field hintText="关键字搜索" v-model="queryString" type="text" icon="search"/>
       <mu-divider />
     </div>
     <ul class="items-wrapper" style="margin: 0; padding: 0">

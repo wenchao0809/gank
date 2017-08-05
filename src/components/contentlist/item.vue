@@ -1,5 +1,5 @@
 <template>
-  <div @click="locateToDetail" class="item-wrapper">
+  <div @touchstart="handleTouchStart" @touchmove="handleTouchEnd" @touchend="handleTouchEnd" @click="locateToDetail" class="item-wrapper">
     <div class="description-wrapper">
       <p class="descriptieon" style="margin: 0; padding: 0">{{ ganhuoDescription }}</p>
       <div class="label-wrapper">
@@ -18,12 +18,25 @@
     </div>
     <!--<div class="img-wrapper">-->
       <img v-if="itemGanhuo.images" :src='itemGanhuo.images[0]' alt="a imge for ganhuo" style="width: 100px; height: 100px">
+    <mu-dialog :open="dialog" title="提示" @close="close">
+      确定收藏本条干货
+      <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+      <mu-flat-button slot="actions" primary @click="closeAndCollect" label="确定"/>
+    </mu-dialog>
     <!--</div>-->
   </div>
 </template>
 
 <script>
+  import SaveStorage from '../../assets/js/savestorage'
+
   export default {
+    data () {
+      return {
+        timOut: 0,
+        dialog: false
+      }
+    },
     props: {
       itemGanhuo: {
         type: Object,
@@ -54,6 +67,24 @@
     methods: {
       locateToDetail () {
         window.open(this.itemGanhuo.url)
+      },
+      handleTouchEnd () {
+        clearTimeout(this.timeout)
+      },
+      handleTouchStart () {
+        if (!this.$route.path.includes('collections')) {
+          this.timeout = setTimeout(() => {
+            this.dialog = true
+          }, 500)
+        }
+      },
+      closeAndCollect () {
+        this.dialog = false
+        SaveStorage.save(this.itemGanhuo)
+        this.$store.commit('UPDATE_COLLECTION_DATA')
+      },
+      close () {
+        this.dialog = false
       }
     }
   }
@@ -89,6 +120,5 @@
     img {
     }
   }
-
 }
 </style>

@@ -5,7 +5,7 @@ const CLASSIFY = 'classify'
 const SEARCH = 'search'
 const BOOKS = 'books'
 export {NEW_EST, CLASSIFY, SEARCH, BOOKS}
-export const TITLE_MAP = new Map([[NEW_EST, '最新干货'], [CLASSIFY, '干货分类'], [SEARCH, '搜索干货'], [BOOKS, '收藏']])
+export const TITLE_MAP = new Map([[NEW_EST, '最新'], [CLASSIFY, '分类'], [SEARCH, '搜索干货'], [BOOKS, '收藏']])
 export const LEFT_ICON_MAP = new Map([[NEW_EST, 'radio_button_checked'], [SEARCH, ''], [CLASSIFY, 'send'], [BOOKS, 'settings']])
 export const CHANGE_TILTE_AND_ICON = 'CHANGE_TITLE_AND_ICON'
 
@@ -35,3 +35,5 @@ export const UPDATE_IS_SHOW_LOAD = 'UPDATE_IS_SHOW_LOAD'
 export const UPDATE_SEARCH_RESULTS_REFRESH = 'UPDATE_SEARCH_RESULTS_REFRESH'
 export const UPDATE_SEARCH_RESULTS_LOAD = 'UPDATE_SEARCH_RESULTS_LOAD'
 
+/* *** colllection ****/
+export const UPDATE_COLLECTION_DATA = 'UPDATE_COLLECTION_DATA'

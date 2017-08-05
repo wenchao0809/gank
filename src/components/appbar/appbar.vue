@@ -17,10 +17,11 @@
 <script>
   import { mapState } from 'vuex'
   import datepicker from '../datepicker/datepicker.vue'
+  import SaveStorage from '../../assets/js/savestorage'
 
   const NEWESTPAGE = '/newest'
 //  const CLASSIFYPAGE = '/classify'
-//  const COLLECTIONSPAGE = '/collections'
+  const COLLECTIONSPAGE = '/collections'
 
   export default {
     data () {
@@ -65,6 +66,9 @@
         let path = this.$route.path
         if (path.startsWith(NEWESTPAGE)) {
           this.isShowDatePicker = !this.isShowDatePicker
+        } else if (path.startsWith(COLLECTIONSPAGE)) {
+          SaveStorage.clear()
+          this.$store.commit('UPDATE_COLLECTION_DATA')
         }
       },
       handleSelectDate () {
@@ -75,8 +79,6 @@
         this.$store.dispatch('getGanHuoByDayAction')
         this.isShowDatePicker = !this.isShowDatePicker
       }
-    },
-    mounted () {
     }
   }
 </script>
