@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import common from './modules/commonmodules'
 import ganhuo from './modules/ganhuo'
 import classify from './modules/classifymodules'
-import searchmodules from './modules/searchmodules'
+import search from './modules/searchmodules'
 
 Vue.use(Vuex)
 
@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     common,
     ganhuo,
     classify,
-    searchmodules
+    search
   }
 })
 

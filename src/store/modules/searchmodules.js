@@ -5,7 +5,7 @@ const search = {
   state: {
     searchResults: [],
     refreshPage: 1,
-    loadePage: 2,
+    loadPage: 2,
     moreData: false
   },
   actions: searchactions,

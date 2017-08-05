@@ -6,12 +6,12 @@ export const searchactions = {
    * @param commit
    * @returns {Promise.<void>}
    */
-  async  getRandomGan ({commit}) {
-    commit('UPDATE_IS_SHOW_REFRESH', true)
-    let path = `/history/content/20/${this.state.loadPage}`
+  async  getRandomGan ({state, commit}) {
+    let path = `/random/data/Android/20`
     try {
+      commit('UPDATE_IS_SHOW_REFRESH', true)
       let response = await axios.get(path)
-      commit('UPDATE_SEARCH_RESULTS_REFRESH', response.data)
+      commit('UPDATE_SEARCH_RESULTS_REFRESH', response.data.results)
       commit('UPDATE_IS_SHOW_REFRESH', false)
     } catch (e) {
       console.log(e.message)
@@ -23,12 +23,12 @@ export const searchactions = {
    * @param queryString
    * @returns {Promise.<void>}
    */
-  async searchGanRefresh ({commit}, queryString) {
-    let path = `/query/listview/category/${queryString}/count/21/page/${this.state.refreshPage}`
+  async searchGanRefresh ({state, commit}, queryString) {
+    let path = `/search/query/${queryString}/category/all/count/21/page/${state.refreshPage}`
     try {
       commit('UPDATE_IS_SHOW_REFRESH', true)
       let response = await axios.get(path)
-      commit('UPDATE_SEARCH_RESULTS_REFRESH', response.data)
+      commit('UPDATE_SEARCH_RESULTS_REFRESH', response.data.results)
       commit('UPDATE_IS_SHOW_REFRESH', false)
     } catch (e) {
       console.log(e.message)
@@ -40,13 +40,13 @@ export const searchactions = {
    * @param queryString
    * @returns {Promise.<void>}
    */
-  async searchGanLoad ({commit}, queryString) {
-    let path = `/query/listview/category/${queryString}/count/21/page/${this.state.loadPage}`
-    commit('UPDATE_IS_SHOW_REFRESH', true)
+  async searchGanLoad ({state, commit}, queryString) {
+    let path = `/search/query/${queryString}/category/all/count/21/page/${state.loadPage}`
     try {
+      commit('UPDATE_IS_SHOW_LOAD', true)
       let response = await axios.get(path)
-      commit('UPDATE_SEARCH_RESULTS_LOAD', response.data)
-      commit('UPDATE_IS_SHOW_REFRESH', false)
+      commit('UPDATE_SEARCH_RESULTS_LOAD', response.data.results)
+      commit('UPDATE_IS_SHOW_LOAD', false)
     } catch (e) {
       console.log(e.message)
     }
